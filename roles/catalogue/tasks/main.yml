@@ -1,0 +1,26 @@
+- name: Load Nodejs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: nodejs
+
+   # print_head Install MongoDB
+    #dnf install mongodb-mongosh -y &>> $log_file
+    #exit_status_print $?
+
+    #print_head Load Master Data
+#    mongosh --host mongodb-dev.jrdevops81.online </app/db/master-data.js &>> $log_file
+    #exit_status_print $?
+
+- name: Copy Mongodb repo file
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+
+- name: Install MongoDB
+  ansible.builtin.dnf:
+    name: mongodb-mongosh
+    state: installed
+
+- name: Load Master data
+  ansible.builtin.shell: mongosh --host mongodb-dev.jrdevops81.online </app/db/master-data.js
