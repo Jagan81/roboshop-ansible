@@ -1,4 +1,4 @@
 - name: Load Python
-  ansible.builtin.include_roles:
+  ansible.builtin.include_tasks:
     name: common
-    tasks_from: python.yml
+    tasks_from: python
