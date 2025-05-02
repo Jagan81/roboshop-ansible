@@ -1,0 +1,24 @@
+- name: Load Maven
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: maven
+
+
+- name: Install MySQL Client
+  ansible.builtin.dnf:
+    name: mysql
+    state: Installed
+
+- name: Load Schema
+  ansible.builtin.shell: mysql -h mysql-dev.jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
+
+
+- name: Load User Creation
+  ansible.builtin.shell:  mysql -h mysql-dev.jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
+
+
+- name: Load Master Data
+  ansible.builtin.shell:  mysql -h mysql-dev.jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
+
+
+
