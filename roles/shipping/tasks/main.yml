@@ -10,15 +10,15 @@
     state: Installed
 
 - name: Load Schema
-  ansible.builtin.shell: mysql -h mysql-dev.jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
+  ansible.builtin.shell: mysql -h mysql-{{ env }}..jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
 
 
 - name: Load User Creation
-  ansible.builtin.shell:  mysql -h mysql-dev.jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
+  ansible.builtin.shell:  mysql -h mysql-{{ env }}..jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
 
 
 - name: Load Master Data
-  ansible.builtin.shell:  mysql -h mysql-dev.jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
+  ansible.builtin.shell:  mysql -h mysql-{{ env }}..jrdevops81.online -uroot -pRoboShop@1 < /app/db/$file.sql
 
 
 

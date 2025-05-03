@@ -1,12 +1,7 @@
 
-#print_head Start Service
-#systemctl daemon-reload &>> $log_file
-#systemctl enable $component &>> $log_file
-#systemctl restart $component &>> $log_file
-#exit_status_print $?
 
 - name: Copy SystemD Service file
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: "{{ component_name }}.service"
     dest: /etc/systemd/system/{{ component_name }}.service
 

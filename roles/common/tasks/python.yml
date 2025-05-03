@@ -3,7 +3,7 @@
     name:
       - python3
       - gcc
-      - python3-devel
+      - python3-{{ env }}.el
     state: installed
 
 - name: Include artifact_download
